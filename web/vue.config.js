@@ -11,6 +11,10 @@ module.exports = {
   productionSourceMap: false,
   filenameHashing: false,
   transpileDependencies: ['yjs', 'lib0', 'quill'],
+  // https://cli.vuejs.org/config/#devserver
+  devServer: {
+    port: 7001
+  },
   chainWebpack: config => {
     // 移除 preload 插件
     config.plugins.delete('preload')

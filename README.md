@@ -19,6 +19,57 @@
 
 在线地址：[https://wanglin2.github.io/mind-map/](https://wanglin2.github.io/mind-map/)。
 
+本地启动本仓库的 web 项目：
+
+**注意：需要先把本仓库 web 项目下的 package.json 中的 v-viewer 版本固定为 1.6.4。然后，再运行下面的命令**
+
+```bash
+# 以下命令行摘自 https://wanglin2.github.io/mind-map-docs/start/start.html#%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91
+git clone https://github.com/wanglin2/mind-map.git
+cd mind-map
+cd simple-mind-map
+npm i
+npm link
+cd ..
+cd web
+npm i
+npm link simple-mind-map
+npm run serve
+```
+
+搭配 whistle 使用：先配置 whistle
+
+```conf
+https://my-local-mind-map.com localhost:7001
+```
+
+自定义运行端口（如 7001），修改 `web/vue.config.js` 文件
+
+```js
+module.exports = {
+  // ...
+  devServer: {
+    port: 7001
+  },
+}
+```
+
+本地命令行启动 whistle
+
+```bash
+# 1. 全局安装 whistle
+npm i -g whistle
+# 2. 启动 whistle
+w2 start
+# 3. 安装 whistle 的 HTTPS 证书
+# 3.1 在浏览器中打开 http://127.0.0.1:8899/
+# 3.2 点击顶部栏的 HTTPS
+# 3.3 在弹出框中点击「Download RootCA」
+# 3.4 此时会自动下载一个「rootCA.crt」 文件
+# 3.5 打开「rootCA.crt」 文件
+# 3.6 按照提示一步步安装即可。注意如果在 windows 系统下，选择证书存储时，需要选择「将所有的证书都放入下列存储」，然后点击「浏览」，再选择「受信任的根证书颁发机构」，最后再点击确定。如果证书没有放在「受信任的根证书颁发机构」下，即使安装了证书， windows 系统下浏览器还是会提示自定义的域名不安全。
+```
+
 此外也提供了客户端可供下载使用，支持`Windows`、`Mac`及`Linux`，下载地址：
 
 Github：[releases](https://github.com/wanglin2/mind-map/releases)。百度云盘：[地址](https://pan.baidu.com/s/1huasEbKsGNH2Af68dvWiOg?pwd=3bp3)。
