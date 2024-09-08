@@ -33,7 +33,7 @@ npm link
 cd ..
 cd web
 npm i
-npm link simple-mind-map
+npm link simple-mind-map # web 项目的 package.json 实际上没有显式安装 simple-mind-map。看起来是把 simple-mind-map 作为幽灵依赖使用
 npm run serve
 ```
 
